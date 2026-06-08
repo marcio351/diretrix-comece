@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Diretrix · Direção estratégica para o seu negócio</title>
+<meta name="description" content="Direção estratégica recorrente para o seu negócio. Escolha por onde começar."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --navy:#0E1B28; --navy2:#142331; --gold:#C8A35B; --gold-2:#E3CD9A;
+    --line:rgba(255,255,255,.10); --muted:rgba(255,255,255,.62); --ink:#fff;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    color:var(--ink); min-height:100vh;
+    background:
+      radial-gradient(120% 60% at 50% -8%, rgba(200,163,91,.20), transparent 60%),
+      radial-gradient(90% 50% at 50% 110%, rgba(200,163,91,.10), transparent 60%),
+      linear-gradient(180deg,#0c1722 0%, #0E1B28 40%, #0a141d 100%);
+    background-attachment:fixed;
+    display:flex; justify-content:center;
+    padding:34px 20px calc(34px + env(safe-area-inset-bottom));
+  }
+  .wrap{ width:100%; max-width:460px; }
+
+  /* ===== topo ===== */
+  .brand{ text-align:center; }
+  .brand img{ height:34px; width:auto; }
+  .name{ margin-top:18px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:19px; letter-spacing:.2px; }
+  .tag{ margin-top:9px; font-size:14.5px; line-height:1.55; color:var(--muted); }
+  .tag b{ color:#fff; font-weight:600; }
+
+  .lead{
+    margin:26px 0 14px; text-align:center; font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--gold); font-weight:600;
+  }
+  .lead::before,.lead::after{ content:""; display:inline-block; width:24px; height:1px; background:linear-gradient(90deg,transparent,var(--gold)); vertical-align:middle; margin:0 10px; opacity:.7; }
+  .lead::after{ background:linear-gradient(90deg,var(--gold),transparent); }
+
+  /* ===== cards da esteira ===== */
+  .menu{ display:flex; flex-direction:column; gap:13px; }
+  .card{
+    position:relative; display:flex; align-items:center; gap:15px;
+    background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+    border:1px solid var(--line); border-radius:16px; padding:17px 16px 17px 18px;
+    text-decoration:none; color:inherit; overflow:hidden;
+    transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--gold-2),var(--gold)); opacity:.85; }
+  .card:hover,.card:active{ transform:translateY(-2px); border-color:rgba(200,163,91,.45); background:linear-gradient(180deg, rgba(200,163,91,.10), rgba(255,255,255,.02)); box-shadow:0 14px 30px -16px rgba(0,0,0,.7); }
+
+  .step{
+    flex:0 0 auto; width:40px; height:40px; border-radius:11px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Montserrat',sans-serif; font-weight:800; font-size:17px;
+    color:var(--gold-2); background:rgba(200,163,91,.12); border:1px solid rgba(200,163,91,.30);
+  }
+  .card .body{ flex:1 1 auto; min-width:0; }
+  .ttl{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:16px; line-height:1.2; }
+  .desc{ margin-top:4px; font-size:12.8px; line-height:1.45; color:var(--muted); }
+  .pill{
+    display:inline-block; margin-top:9px; font-size:11.5px; font-weight:600; letter-spacing:.02em;
+    color:var(--gold-2); background:rgba(200,163,91,.13); border:1px solid rgba(200,163,91,.28);
+    padding:3px 10px; border-radius:20px;
+  }
+  .chev{ flex:0 0 auto; color:var(--gold); opacity:.8; }
+  .chev svg{ display:block; }
+
+  /* destaque do degrau de entrada */
+  .card.primary{ background:linear-gradient(180deg, rgba(200,163,91,.16), rgba(200,163,91,.05)); border-color:rgba(200,163,91,.40); }
+  .card.primary .step{ background:var(--gold); color:#15202c; border-color:var(--gold); }
+  .badge-top{ position:absolute; top:10px; right:12px; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--gold-2); }
+
+  /* ===== faixa IA ===== */
+  .ai{ margin:20px 0 6px; text-align:center; font-size:12.6px; line-height:1.55; color:var(--muted); padding:0 4px; }
+  .ai b{ color:#fff; font-weight:600; }
+
+  /* ===== rodapé ===== */
+  .foot{ margin-top:22px; }
+  .wa{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%; padding:15px; border-radius:14px; text-decoration:none;
+    background:#1f8f4d; color:#fff; font-weight:700; font-size:15px; letter-spacing:.01em;
+    box-shadow:0 12px 26px -14px rgba(31,143,77,.8); transition:transform .15s ease, background .15s ease;
+  }
+  .wa:active,.wa:hover{ transform:translateY(-1px); background:#22a058; }
+  .links{ margin-top:16px; text-align:center; font-size:12.5px; line-height:1.9; color:var(--muted); }
+  .links a{ color:var(--muted); text-decoration:none; }
+  .links a:hover{ color:#fff; }
+  .copyright{ margin-top:16px; text-align:center; font-size:11px; color:rgba(255,255,255,.35); }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="brand">
+      <img src="diretrix-white.png" alt="Diretrix"/>
+      <div class="name">Marcio Porciúncula</div>
+      <div class="tag">Conduzo donos de negócio do improviso à <b>direção estratégica</b>. Do escuro à clareza, um degrau de cada vez.</div>
+    </div>
+
+    <div class="lead">Escolha por onde começar</div>
+
+    <nav class="menu">
+
+      <!-- Degrau 1 — Assinatura → plataforma -->
+      <a class="card primary" href="https://diretrix.consultoriajks.com.br" target="_blank" rel="noopener">
+        <span class="badge-top">Comece aqui</span>
+        <span class="step">1</span>
+        <span class="body">
+          <span class="ttl">Plataforma Diretrix</span>
+          <span class="desc">Direção estratégica do seu negócio, todo mês. O que priorizar, corrigir e escalar.</span>
+          <span class="pill">Assinatura · R$ 47/mês</span>
+        </span>
+        <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+      </a>
+
+      <!-- Degrau 2 — Sábado de Direção → WhatsApp -->
+      <a class="card" href="https://wa.me/5521964212829?text=Ol%C3%A1%20Marcio!%20Tenho%20interesse%20no%20S%C3%A1bado%20de%20Dire%C3%A7%C3%A3o%20(R%24%2097).%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener">
+        <span class="step">2</span>
+        <span class="body">
+          <span class="ttl">1 Sábado de Direção</span>
+          <span class="desc">Um sábado ao vivo aplicando o método no seu negócio, do seu lado.</span>
+          <span class="pill">Workshop · R$ 97</span>
+        </span>
+        <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+      </a>
+
+      <!-- Degrau 3 — Mentoria em grupo → WhatsApp -->
+      <a class="card" href="https://wa.me/5521964212829?text=Ol%C3%A1%20Marcio!%20Quero%20saber%20sobre%20a%20Mentoria%20em%20Grupo%20da%20Diretrix." target="_blank" rel="noopener">
+        <span class="step">3</span>
+        <span class="body">
+          <span class="ttl">Mentoria em Grupo</span>
+          <span class="desc">Acompanhamento em turma para aprofundar e executar a sua estratégia.</span>
+          <span class="pill">Turmas · vagas limitadas</span>
+        </span>
+        <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+      </a>
+
+      <!-- Degrau 4 — Mentoria individual → WhatsApp -->
+      <a class="card" href="https://wa.me/5521964212829?text=Ol%C3%A1%20Marcio!%20Tenho%20interesse%20na%20Mentoria%20Individual%20da%20Diretrix." target="_blank" rel="noopener">
+        <span class="step">4</span>
+        <span class="body">
+          <span class="ttl">Mentoria Individual</span>
+          <span class="desc">Aceleração personalizada, um a um. Poucas vagas, foco total no seu caso.</span>
+          <span class="pill">Exclusivo · sob consulta</span>
+        </span>
+        <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+      </a>
+
+    </nav>
+
+    <p class="ai">A IA multiplica o seu negócio do tamanho da direção que ele já tem. <b>A Diretrix entrega a direção primeiro.</b></p>
+
+    <div class="foot">
+      <a class="wa" href="https://wa.me/5521964212829?text=Ol%C3%A1%20Marcio!%20Vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20a%20Diretrix." target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.69-6.16a11.87 11.87 0 01-1.6-5.95C.15 5.32 5.5 0 12.06 0a11.82 11.82 0 018.42 3.49 11.76 11.76 0 013.48 8.4c0 6.55-5.35 11.88-11.91 11.88a11.94 11.94 0 01-5.7-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.4 1.59 5.45 0 9.89-4.42 9.89-9.87 0-5.45-4.42-9.87-9.88-9.87-5.46 0-9.9 4.42-9.9 9.87 0 2.22.65 3.88 1.74 5.62l-1 3.65 3.75-.99zm11.39-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.69.25-1.28.17-1.41z"/></svg>
+        Falar comigo no WhatsApp
+      </a>
+      <div class="links">
+        <a href="https://diretrix.consultoriajks.com.br" target="_blank" rel="noopener">diretrix.consultoriajks.com.br</a><br/>
+        <a href="mailto:marcio@consultoriajks.com.br">marcio@consultoriajks.com.br</a>
+      </div>
+      <div class="copyright">Diretrix · Direção estratégica recorrente</div>
+    </div>
+
+  </main>
+</body>
+</html>
